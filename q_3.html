@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function isValidCard(cardNumber) {
+            let cardNumberArray = cardNumber.split("").map(Number).reverse();    //using built-in functions
+            let checkSum = 0;
+            for (let i = 0; i < cardNumberArray.length; i++) {
+                let digit = cardNumberArray[i];
+                checkSum += i % 2 === 0 ? digit : digit > 4 ? digit * 2 - 9 : digit * 2;
+            }
+            return checkSum % 10 === 0;
+        }
+        let cardNumber = prompt("Enter your credit card number: ");
+
+
+        console.log(isValidCard(cardNumber));
+
+
+
+
+    </script>
+</body>
+
+</html>
